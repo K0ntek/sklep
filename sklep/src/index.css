@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Advent+Pro&family=Gruppo&family=Michroma&family=Orbitron&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Bruno+Ace&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: Flexible;
+    src: url(sansation_light.woff);
+  }
+  
+
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+*::selection{
+    background: #a5a5a5;
+    color:white;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 5px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: rgb(24, 24, 24);
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #cacaca;
+    border-radius: 8px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #c93;
+  }
+
+  ::-webkit-scrollbar-track:horizontal{
+    background: rgb(209, 209, 209);
+  }
+
+  ::-webkit-scrollbar-thumb:horizontal{
+    background: black;
+  }
+
+
+body{
+    overflow-x: hidden;
+}
+
+.header{
+    background: url("https://i.pinimg.com/564x/f9/7f/4c/f97f4c3965195de2b22b0f4495ba490e.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.design{
+    -webkit-text-stroke: 2px white;
+    color: transparent;
+}
+
+.headerTitle{
+    letter-spacing: 3px;
+    font-family: Flexible;
+}
+
+.categoryNavTitle{
+  -webkit-text-stroke: 2px #000000;
+  color: transparent;
+  transition: all .3s;
+}
+
+.categoryNav:hover .categoryNavTitle{
+  color: white;
+  -webkit-text-stroke: 0 ;
+}
+
+.interiorNav{
+  background: url("https://i.pinimg.com/564x/f9/7f/4c/f97f4c3965195de2b22b0f4495ba490e.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.gardenNav{
+  background: url("https://media.istockphoto.com/id/1254871777/photo/modern-minimalist-family-villa.jpg?b=1&s=170667a&w=0&k=20&c=IxPTdXDjk8jRTV44--CB_0J5CH3e0ZVN84CdM8BvGD0=");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.wallpapersNav{
+  background: url("https://m.media-amazon.com/images/I/81X0LDiDdtL.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-y: center ;
+  aspect-ratio: 16/5;
+}
+
+@media screen and (max-width: 1024px) {
+  .wallpapersNav {
+    aspect-ratio: 16/9;
+  }
+}
+
+.navbar{
+  transition: .3s;
+  position: fixed;
+}
+
+.activeNavbar {
+  position: fixed;
+  top:0;
+}
+
+.line{
+  width: 30px;
+  height: 2px;
+  border-radius: 2px;
+  background:#000000;
+  transition: .3s;
+}
+.activeIcon .item-1{
+  transform: rotate(45deg);
+  position: relative;
+  top:4px;
+  transition: .3s;
+}
+
+.activeIcon .item-2{
+  display: none;
+}
+
+.activeIcon .item-3{
+  transform: rotate(-45deg);
+  position: relative;
+  top:-4px;
+  transition: .3s;
+}
+
+.carousel{
+  position: unset;
+}
+.activeStars{
+  color:black;
+  
+}
