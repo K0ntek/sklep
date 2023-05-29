@@ -4,6 +4,8 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { Link } from "react-router-dom";
 
+import data from "../data.json";
+
 import {AiOutlineArrowLeft, AiOutlineArrowRight} from 'react-icons/all'
 
 const Products =()=>{
@@ -11,77 +13,9 @@ const Products =()=>{
     const categories =[
         {
             category:'KONSOLE',
-            id:'konsola'
+          
         }
     ]
-
-    const products =[
-        {
-            img:'https://i.pinimg.com/564x/f9/7f/4c/f97f4c3965195de2b22b0f4495ba490e.jpg',
-            title:' Evia',
-            category:'konsola',
-            price: '2100',
-            id:'konsola',
-            link:'/Evia'
-        },
-        {
-            img:'https://i.pinimg.com/564x/f9/7f/4c/f97f4c3965195de2b22b0f4495ba490e.jpg',
-            title:' Malveta',
-            category:'konsola',
-            price: '2100',
-            id:'konsola',
-            link:'/Evia'
-        },
-        {
-            img:'https://i.pinimg.com/564x/f9/7f/4c/f97f4c3965195de2b22b0f4495ba490e.jpg',
-            title:' Set Of Lanka',
-            category:'konsola',
-            price: '2100',
-            id:'konsola',
-            link:'/Evia'
-        },
-        {
-            img:'https://i.pinimg.com/564x/f9/7f/4c/f97f4c3965195de2b22b0f4495ba490e.jpg',
-            title:' Evia Duo',
-            category:'konsola',
-            price: '2100',
-            id:'konsola',
-            link:'/Evia'
-        },
-        {
-            img:'https://i.pinimg.com/564x/f9/7f/4c/f97f4c3965195de2b22b0f4495ba490e.jpg',
-            title:' Evia Duo',
-            category:'konsola',
-            price: '2100',
-            id:'konsola',
-            link:'/Evia'
-        },
-        {
-            img:'https://i.pinimg.com/564x/f9/7f/4c/f97f4c3965195de2b22b0f4495ba490e.jpg',
-            title:' Evia Duo',
-            category:'konsola',
-            price: '2100',
-            id:'konsola',
-            link:'/Evia'
-        },
-        {
-            img:'https://i.pinimg.com/564x/f9/7f/4c/f97f4c3965195de2b22b0f4495ba490e.jpg',
-            title:' Evia Duo',
-            category:'konsola',
-            price: '2100',
-            id:'konsola',
-            link:'/Evia'
-        },
-        {
-            img:'https://i.pinimg.com/564x/f9/7f/4c/f97f4c3965195de2b22b0f4495ba490e.jpg',
-            title:' Evia Duo',
-            category:'konsola',
-            price: '2100',
-            id:'konsola',
-            link:'/Evia'
-        }
-    ]
-
 
     const responsive = {
         superLargeDesktop: {
@@ -140,19 +74,20 @@ const Products =()=>{
                     customLeftArrow={<CustomLeftArrow/>}
                     className="carousel"
                     centerMode={true}
+                    draggable={true}
                     >
-                    {products.map((product, i)=>{
+                    {data.map((product, i)=>{
                         return(
-                           <Link to={product.link}>
-                             <div key={i} id={product.id} className="product w-[98%] relative cursor-pointer bg-[#f1f1f1] pb-2 group">
+                          <div key={i} id={product.id} className="product w-[98%] relative cursor-pointer bg-[#f1f1f1] pb-2 group">
+                           <Link to={`product/${product.id}`}>
                                 <div className=" overflow-hidden"> <img src={product.img} draggable="false" className=" group-hover:scale-110 transition-all duration-200"/></div>
                             <div className="ml-2">
                                     <p className=" font-gruppo font-extrabold text-2xl text-black">{product.title}</p>
                                     <p className=" font-brunoAce text-slate-400 text-sm">{product.category}</p>
                                     <p className=" font-orbitron">{product.price} pln</p>
                             </div>
+                            </Link>
                             </div>
-                           </Link>
                         )
                     })}
                     </Carousel>

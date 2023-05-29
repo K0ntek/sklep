@@ -3,11 +3,18 @@ import { useState, useEffect } from "react";
 import Products from "./products";
 
 import {AiOutlineStar, AiFillStar, AiOutlinePlus,AiOutlineMinus} from 'react-icons/all'
+import { useParams } from "react-router-dom";
+import data from '../data.json'
 
 const Product =()=>{
-
+    const { id } = useParams();
     const [counter, setCounter] = useState(1);
- 
+    const [product, setProduct] = useState();
+    
+    useEffect(() => {
+        setProduct(data.find((product, i) => product.id === id));
+    }, [id])
+
     const increase = () => {
       setCounter((prev) => prev  + 1);
       if(counter >=20){
@@ -22,20 +29,21 @@ const Product =()=>{
       }
     };
 
-        let stars = document.querySelectorAll('.star')
-        stars.forEach((star, starIndex1)=>{
-            star.addEventListener('click',()=>{
-                stars.forEach((star, starIndex2)=>{
-                    starIndex1 >=starIndex2 ? star.classList.add('activeStars') : star.classList.remove('activeStars')
-                })
+    let stars = document.querySelectorAll('.star')
+    stars.forEach((star, starIndex1)=>{
+        star.addEventListener('click',()=>{
+            stars.forEach((star, starIndex2)=>{
+                starIndex1 >=starIndex2 ? star.classList.add('activeStars') : star.classList.remove('activeStars')
             })
         })
+    })
 
-
+    
     return(
         <div className="w-full min-h-screen py-[60px]">
-
-            <div className="h-fit grid lg:grid-cols-2 mt-10 space-y-5 lg:space-y-0">
+            {product &&  
+            (
+                    <div className="h-fit grid lg:grid-cols-2 mt-10 space-y-5 lg:space-y-0">
                     <div className="relative top-[50%] translate-y-[-50%]">
                         <div className="w-[90%] mx-auto">
                            <div className="relative">
@@ -48,8 +56,8 @@ const Product =()=>{
 
                     <div className=" w-[90%] mx-auto">
                         <div className="space-y-3 relative top-[50%] translate-y-[-50%]">
-                            <h1 className="text-5xl font-gruppo font-extrabold">NAZWA</h1>
-                               <p className=" font-orbitron text-2xl">210.99 pln</p>
+                            <h1 className="text-5xl font-gruppo font-extrabold">{product.title}</h1>
+                               <p className=" font-orbitron text-2xl">{counter * product.price} pln</p>
 
                                 <div>
                                     <p className=" font-gruppo font-bold">LICZBA SZTUK:</p>
@@ -76,7 +84,7 @@ const Product =()=>{
                         </div>
                     </div>
             </div>
-
+            )}
         </div>
     )
 }
