@@ -53,7 +53,7 @@ const Products =()=>{
 
 
     return(
-        <div className="w-full">
+        <div className="w-full mt-[80px]">
              {/* <h1 className=" font-brunoAce text-5xl ml-8 my-4">PRODUKTY</h1> */}
              {categories.map((element)=>{
                 return(<h1 className=" font-brunoAce text-5xl ml-8 my-4">{element.category}</h1>)

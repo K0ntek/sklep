@@ -6,7 +6,7 @@ const CategoryNav =()=>{
         <div className="w-full my-[60px] categories">
             <div className="w-[90%] mx-auto">
             <div className="grid lg:grid-cols-2 lg:gap-3 space-y-4 lg:space-y-0 mb-3">
-               <Link to={'/product'}>
+               <Link to={'/products'}>
                <div className="categoryNav w-full group overflow-hidden relative text-5xl rounded-3xl">
                     <div className="interiorNav w-full aspect-video group-hover:scale-125 transition-all duration-300">
                     </div>

@@ -5,6 +5,7 @@ import logo from '../assets/logo.png'
 import logo2 from '../assets/logo2.png'
 import { gsap } from "gsap";
 import { Link, useLocation } from "react-router-dom";
+import Admin from "./admin/admin";
 
 const Navbar =()=>{
     const interior =[
@@ -66,7 +67,7 @@ const Navbar =()=>{
     }
 
     const toggleNavbar =()=>{
-            gsap.to('.extendedNavbar', {top:'60px'})
+            gsap.to('.extendedNavbar', {top:'60px', duration:.4})
     }
 
     const hideNavbar =()=>{
@@ -74,18 +75,38 @@ const Navbar =()=>{
     }
 
     const toggleBasket =()=>{
-        gsap.to('.mobileNav', {opacity:0, display:'none'})
+        if(window.innerWidth <=1024){
+            gsap.to('.mobileNav', {opacity:0, display:'none'})
+        }
         gsap.to('.basket', {right:0})
     }
 
     const hideBasket =()=>{
-        gsap.to('.mobileNav', {opacity:1, display: 'flex'})
+        if(window.innerWidth <=1024){
+            gsap.to('.mobileNav', {opacity:1, display:'flex'})
+        }
         gsap.to('.basket', {right:'-100%'})
+    }
+
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+	const setWindowDimensions = () => setWindowWidth(window.innerWidth);
+
+    useEffect(() => {
+		window.addEventListener("resize", setWindowDimensions);
+		return () => window.removeEventListener("resize", setWindowDimensions);
+	}, []);
+
+    if(window.innerWidth <=1024){
+        gsap.to('.mobileNav', {opacity:1, display:'flex'})
+    }
+    else{
+        gsap.to('.mobileNav', {opacity:0, display:'none'})
     }
 
     return(
        <>
-        <div className="flex z-[80] fixed top-[1%] right-[1%] space-x-[5px] mr-4 lg:hidden mobileNav">
+        <div className="flex z-[80] fixed top-[1%] right-[1%] space-x-[5px] mr-4 lg:hidden mobileNav nav">
         <div className="flex text-[35px] ml-[30px] space-x-[5px]">
                     <BiShoppingBag className="cursor-pointer rounded-full p-[5px] hover:bg-gray-300 hover:text-white transition-all duration-200" onClick={toggleBasket}/>
                     <IoPersonCircleSharp className="cursor-pointer rounded-full p-[5px] hover:bg-gray-300 hover:text-white transition-all duration-200"/>
