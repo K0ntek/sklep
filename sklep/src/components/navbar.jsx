@@ -2,10 +2,9 @@ import React from "react";
 import { useState, useEffect } from "react";
 import {BiShoppingBag, IoPersonCircleSharp, GrClose, CgCloseR} from 'react-icons/all'
 import logo from '../assets/logo.png'
-import logo2 from '../assets/logo2.png'
 import { gsap } from "gsap";
-import { Link, useLocation } from "react-router-dom";
-import Admin from "./admin/admin";
+import { ScrollTrigger } from "gsap/all";
+import { Link } from "react-router-dom";
 
 const Navbar =()=>{
     const interior =[
@@ -75,33 +74,11 @@ const Navbar =()=>{
     }
 
     const toggleBasket =()=>{
-        if(window.innerWidth <=1024){
-            gsap.to('.mobileNav', {opacity:0, display:'none'})
-        }
         gsap.to('.basket', {right:0})
     }
 
     const hideBasket =()=>{
-        if(window.innerWidth <=1024){
-            gsap.to('.mobileNav', {opacity:1, display:'flex'})
-        }
         gsap.to('.basket', {right:'-100%'})
-    }
-
-    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-
-	const setWindowDimensions = () => setWindowWidth(window.innerWidth);
-
-    useEffect(() => {
-		window.addEventListener("resize", setWindowDimensions);
-		return () => window.removeEventListener("resize", setWindowDimensions);
-	}, []);
-
-    if(window.innerWidth <=1024){
-        gsap.to('.mobileNav', {opacity:1, display:'flex'})
-    }
-    else{
-        gsap.to('.mobileNav', {opacity:0, display:'none'})
     }
 
     return(
@@ -109,7 +86,7 @@ const Navbar =()=>{
         <div className="flex z-[80] fixed top-[1%] right-[1%] space-x-[5px] mr-4 lg:hidden mobileNav nav">
         <div className="flex text-[35px] ml-[30px] space-x-[5px]">
                     <BiShoppingBag className="cursor-pointer rounded-full p-[5px] hover:bg-gray-300 hover:text-white transition-all duration-200" onClick={toggleBasket}/>
-                    <IoPersonCircleSharp className="cursor-pointer rounded-full p-[5px] hover:bg-gray-300 hover:text-white transition-all duration-200"/>
+                   <Link to={'/register'}> <IoPersonCircleSharp className="cursor-pointer rounded-full p-[5px] hover:bg-gray-300 hover:text-white transition-all duration-200"/></Link>
             </div>
             <div className="w-[23px] p-[5px] mt-[-1px]" onClick={mobileToggleNavbar}>
                 <div className={activeIcon} onClick={icon}>
@@ -120,12 +97,12 @@ const Navbar =()=>{
             </div>
         </div>
 
-         <div className="w-full h-[60px] fixed top-0  text-black bg-white z-[70]">
+         <div className="w-full h-[60px] fixed top-0  text-black bg-white z-[70] navbar">
             <div className="absolute left-[2%] mt-[5px] cursor-pointer z-50">
             <Link to={'/'}><img src={logo} alt="logo.png" className=" h-[45px]"/></Link>
                     </div>
-                                <div className={`flex bg-white mx-auto align-middle relative top-[-400%] left-0 w-full
-                                                lg:top-[10px] lg:justify-center lg:left-[50%] lg:translate-x-[-50%] lg:space-x-[25px] ${activeNavbar}`}>
+                                <div className={`navElements flex bg-white mx-auto align-middle relative top-[-400%] left-0 w-full
+                                                lg:top-[10px] lg:justify-center lg:space-x-[25px] ${activeNavbar}`}>
 
                                 <ul className=" lg:flex lg:space-x-[20px] relative mt-[70px] lg:mt-[5px] ml-4 lg:ml-0 space-y-2 lg:space-y-0">
 
@@ -146,13 +123,13 @@ const Navbar =()=>{
                                     </div>
 
                                     <div className= 'group text-[20px] lg:text-[14px]'>
-                                        <li className="px-[2px] font-gruppo font-bold"><Link to={''} className="font-gruppo font-bold py-1.5">KONTAKT</Link></li>
+                                        <li className="px-[2px] font-gruppo font-bold"><Link to={'/contact'} className="font-gruppo font-bold py-1.5">KONTAKT</Link></li>
                                         <div className="w-0 mx-auto h-[1px] bg-black group-hover:w-[100%] transition-all duration-300"></div>
                                     </div>
                                 </ul>
                     <div className="text-[30px] ml-[30px] space-x-[5px] hidden lg:flex">
                             <BiShoppingBag className="cursor-pointer rounded-full p-[5px] hover:bg-gray-300 hover:text-white transition-all duration-200" onClick={toggleBasket}/>
-                            <IoPersonCircleSharp className="cursor-pointer rounded-full p-[5px] hover:bg-gray-300 hover:text-white transition-all duration-200"/>
+                            <Link to={'/register'}> <IoPersonCircleSharp className="cursor-pointer rounded-full p-[5px] hover:bg-gray-300 hover:text-white transition-all duration-200"/></Link>
                     </div>
                     </div>
 
@@ -173,7 +150,7 @@ const Navbar =()=>{
                                      <ul>
                                         {interior.map((element, i)=>{
                                             return(
-                                                <li key={i}><a href={element.link} className="hover:text-[#c93] space-y-2">{element.title}</a></li>
+                                                <li key={i}><Link to={'/prod'} className="hover:text-[#c93] space-y-2">{element.title}</Link></li>
                                             )
                                         })}
                                     </ul> 
@@ -215,7 +192,7 @@ const Navbar =()=>{
             {/* ------------------------------------------------------BASKET------------------------------------------------- */}
 
             <div className="relative">
-                    <div className="basket fixed top-0 right-[-100%] w-[70%] 2xl:w-[30%] h-screen bg-[#f5f5f5] z-[90]">
+                    <div className="basket fixed top-[60px] right-[-100%] w-[70%] 2xl:w-[30%] h-screen bg-[#f5f5f5] z-[90]">
                         <GrClose className="z-[99] absolute right-5 top-2 text-[30px] cursor-pointer hover:border-[2px] border-black rounded-full p-1" onClick={hideBasket}/>
                         <div>
                             <div className="w-fit mx-auto my-5">

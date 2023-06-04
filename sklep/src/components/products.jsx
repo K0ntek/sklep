@@ -42,18 +42,18 @@ const Products =()=>{
       };
 
       const CustomRightArrow = ({ onClick }) => {
-        return <AiOutlineArrowRight onClick={() => onClick()} className=" w-[60px] h-[100%]  absolute right-[-60px] text-black text-4xl hover:bg-gray-300 hover:text-white transition-all duration-200"/>;
+        return <AiOutlineArrowRight onClick={() => onClick()} className=" w-[60px] h-[100%]  absolute right-[-60px] text-black text-4xl hover:text-[#d8ca8d] transition-all duration-200"/>;
       };
       <Carousel customRightArrow={<CustomRightArrow />} />;
 
       const CustomLeftArrow = ({ onClick }) => {
-        return <AiOutlineArrowLeft onClick={() => onClick()} className=" w-[60px] h-[100%] absolute left-[-60px] text-black text-4xl hover:bg-gray-300 hover:text-white transition-all duration-200"/>;
+        return <AiOutlineArrowLeft onClick={() => onClick()} className=" w-[60px] h-[100%] absolute left-[-60px] text-black text-4xl hover:text-[#d8ca8d] transition-all duration-200"/>;
       };
       <Carousel customRightArrow={<CustomLeftArrow />} />;
 
 
     return(
-        <div className="w-full mt-[80px]">
+        <div className="w-full mt-[80px] min-h-screen">
              {/* <h1 className=" font-brunoAce text-5xl ml-8 my-4">PRODUKTY</h1> */}
              {categories.map((element)=>{
                 return(<h1 className=" font-brunoAce text-5xl ml-8 my-4">{element.category}</h1>)

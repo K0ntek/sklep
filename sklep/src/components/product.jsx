@@ -46,10 +46,10 @@ const Product =()=>{
                     <div className="h-fit grid lg:grid-cols-2 mt-10 space-y-5 lg:space-y-0">
                     <div className="relative top-[50%] translate-y-[-50%]">
                         <div className="w-[90%] mx-auto">
-                           <div className="relative">
-                                <div className="absolute top-[-10px] left-[-10px] bg-[#9c824e] w-1/2 h-1/2 z-[-1]"></div>
-                                <img src="https://images.unsplash.com/photo-1487017159836-4e23ece2e4cf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80" className=" aspect-video z-50"/>
-                                <div className="absolute bottom-[-10px] right-[-10px] bg-black w-1/2 h-1/2 z-[-1]"></div>
+                           <div className="relative w-fit mx-auto">
+                                <div className="absolute top-[-5px] left-[-5px] bg-[#9c824e] w-1/2 h-1/2 z-[-1]"></div>
+                                <img src={product.img} className=" aspect-video z-50 bg-white"/>
+                                <div className="absolute bottom-[-5px] right-[-5px] bg-black w-1/2 h-1/2 z-[-1]"></div>
                            </div>
                         </div>
                     </div>

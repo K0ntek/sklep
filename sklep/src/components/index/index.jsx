@@ -8,7 +8,7 @@ const Index =()=>{
         <div>
             <Header/>
             <CategoryNav/>
-            <Products/>
+            {/* <Products/> */}
         </div>
     )
 }

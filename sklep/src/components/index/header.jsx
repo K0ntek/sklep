@@ -35,9 +35,9 @@ const Header =()=>{
                 </div>
             </div>
                 <div className="headerContent ">
-                    <p className="headerContentElement modern font-orbitron text-[90px] lg:text-[180px] ml-[30px]">NOWOCZESNY</p>
+                    <p className="headerContentElement modern font-brunoAce text-[90px] lg:text-[180px] ml-[30px]">NOWOCZESNY</p>
                         <div className=" bg-black">
-                            <p className="headerContentElement design font-orbitron text-[120px] lg:text-[240px] text-end mr-[20%]">DESIGN</p>
+                            <p className="headerContentElement design font-brunoAce text-[120px] lg:text-[240px] text-end mr-[20%]">DESIGN</p>
                         </div>
                 <div>
             </div>
