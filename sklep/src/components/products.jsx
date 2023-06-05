@@ -79,7 +79,7 @@ const Products =()=>{
                     {data.map((product, i)=>{
                         return(
                           <div key={i} id={product.id} className="product w-[98%] relative cursor-pointer bg-[#f1f1f1] pb-2 group">
-                           <Link to={`product/${product.id}`}>
+                           <Link to={`/product/${product.id}`}>
                                 <div className=" overflow-hidden"> <img src={product.img} draggable="false" className=" group-hover:scale-110 transition-all duration-200"/></div>
                             <div className="ml-2">
                                     <p className=" font-gruppo font-extrabold text-2xl text-black">{product.title}</p>

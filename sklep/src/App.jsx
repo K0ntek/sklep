@@ -17,11 +17,9 @@ function App() {
     <div>
      <BrowserRouter>
       <Navbar/>
-     <div className="webContent">
       <Routes>
           <Route path="/" element={<Index/>}/>
-          <Route path="/products/product/:id" element={<Product/>}/>
-          <Route path="/prod/product/:id" element={<Product/>}/>
+          <Route path="/product/:id" element={<Product/>}/>
           <Route path="/products" element={<Products/>}/>
           <Route path="/prod" element ={<CategoryProducts/>}/>
           <Route path="/about" element={<About/>}/>
@@ -29,7 +27,6 @@ function App() {
           <Route path="/contact" element={<Contact/>}/>
           <Route path="/admin" element={<Admin/>}/>
       </Routes>
-     </div>
 
       <Footer/>
      </BrowserRouter>

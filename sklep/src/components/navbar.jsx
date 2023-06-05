@@ -44,26 +44,17 @@ const Navbar =()=>{
 
     const garden =[
         {
-           link: '',
+           link: '/products',
            title:  'MEBLE'
         },
         {
-            link: '',
+            link: '/products',
             title:  'HAMAKI'
         },
     ]
 
-    const [activeNavbar, setNavbar] = useState('navbar')
-    const mobileToggleNavbar = () => {
-        activeNavbar === 'navbar' ? setNavbar('navbar activeNavbar') : setNavbar('navbar');
-    }
-
-    const [activeIcon, setIcon] = useState('icon')
-    const icon =()=>{
-        activeIcon === 'icon' ? setIcon('icon activeIcon') : setIcon('icon');
-
-
-    }
+    const [activeNavbar, setActiveNavbar] = useState(false);
+    const [activeIcon, setActiveIcon] = useState(false)
 
     const toggleNavbar =()=>{
             gsap.to('.extendedNavbar', {top:'60px', duration:.4})
@@ -81,6 +72,14 @@ const Navbar =()=>{
         gsap.to('.basket', {right:'-100%'})
     }
 
+    useEffect(() => {
+        if (activeNavbar) {
+            toggleNavbar();
+            return;
+        }
+        hideNavbar();
+    }, [activeNavbar])
+
     return(
        <>
         <div className="flex z-[80] fixed top-[1%] right-[1%] space-x-[5px] mr-4 lg:hidden mobileNav nav">
@@ -88,8 +87,8 @@ const Navbar =()=>{
                     <BiShoppingBag className="cursor-pointer rounded-full p-[5px] hover:bg-gray-300 hover:text-white transition-all duration-200" onClick={toggleBasket}/>
                    <Link to={'/register'}> <IoPersonCircleSharp className="cursor-pointer rounded-full p-[5px] hover:bg-gray-300 hover:text-white transition-all duration-200"/></Link>
             </div>
-            <div className="w-[23px] p-[5px] mt-[-1px]" onClick={mobileToggleNavbar}>
-                <div className={activeIcon} onClick={icon}>
+            <div className="w-[23px] p-[5px] mt-[-1px]" onClick={() => setActiveNavbar(!activeNavbar)}>
+                <div className={activeIcon ? "icon activeIcon" : "icon"} onClick={() => setActiveIcon(!activeIcon)}>
                     <div className="line item-1 my-[6px]"></div>
                     <div className="line item-2 my-[6px]"></div>
                     <div className="line item-3 my-[6px]"></div>
@@ -102,7 +101,7 @@ const Navbar =()=>{
             <Link to={'/'}><img src={logo} alt="logo.png" className=" h-[45px]"/></Link>
                     </div>
                                 <div className={`navElements flex bg-white mx-auto align-middle relative top-[-400%] left-0 w-full
-                                                lg:top-[10px] lg:justify-center lg:space-x-[25px] ${activeNavbar}`}>
+                                                lg:top-[10px] lg:justify-center lg:space-x-[25px] ${activeNavbar ? "navbar activeNavbar" : "navbar"}`}>
 
                                 <ul className=" lg:flex lg:space-x-[20px] relative mt-[70px] lg:mt-[5px] ml-4 lg:ml-0 space-y-2 lg:space-y-0">
 
@@ -112,7 +111,7 @@ const Navbar =()=>{
                                         <div className="w-0 mx-auto h-[1px] bg-black group-hover:w-[100%] transition-all duration-300"></div>
                                     </div> 
 
-                                    <div className= 'group text-[20px] lg:text-[14px]' onMouseEnter={toggleNavbar} onClick={toggleNavbar}>
+                                    <div className= 'group text-[20px] lg:text-[14px]' onMouseEnter={() => setActiveNavbar(true)} onClick={() => setActiveNavbar(true)}>
                                         <li className="px-[2px] font-gruppo font-bold cursor-pointer">PRODUKTY</li>
                                         <div className="w-0 mx-auto h-[1px] bg-black group-hover:w-[100%] transition-all duration-300"></div>
                                     </div> 
@@ -137,7 +136,7 @@ const Navbar =()=>{
           
                 <div className="relative">
                             <div className="z-[99] extendedNavbar w-full h-auto py-5 bg-white text-black grid md:grid-cols-3 fixed top-[-100%] left-0 border-t-2 border-black">
-                            <GrClose className="z-[99] absolute right-[20px] top-1 text-[30px] cursor-pointer hover:border-[2px] border-black rounded-full p-1" onClick={hideNavbar}/>
+                            <GrClose className="z-[99] absolute right-[20px] top-1 text-[30px] cursor-pointer hover:border-[2px] border-black rounded-full p-1" onClick={() => setActiveNavbar(false)}/>
                         <div className=" mx-5 mt-5 lg:mt-0">
                             {/* <img src="https://i.pinimg.com/564x/f9/7f/4c/f97f4c3965195de2b22b0f4495ba490e.jpg" /> */}
                             <img src="https://images.unsplash.com/photo-1487017159836-4e23ece2e4cf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80" className=" aspect-video"/>
@@ -150,7 +149,7 @@ const Navbar =()=>{
                                      <ul>
                                         {interior.map((element, i)=>{
                                             return(
-                                                <li key={i}><Link to={'/prod'} className="hover:text-[#c93] space-y-2">{element.title}</Link></li>
+                                                <li onClick={() => setActiveNavbar(false)} key={i}><Link to={'/products'} className="hover:text-[#c93] space-y-2">{element.title}</Link></li>
                                             )
                                         })}
                                     </ul> 
@@ -165,7 +164,7 @@ const Navbar =()=>{
                                 <ul>
                                     {garden.map((element, i)=>{
                                         return(
-                                            <li key={i}><a href={element.link} className="hover:text-[#c93]">{element.title}</a></li>
+                                            <li onClick={() => setActiveNavbar(false)} key={i}><Link to={'/products'} className="hover:text-[#c93]">{element.title}</Link></li>
                                         )
                                     })}
                                 </ul>  
@@ -179,7 +178,7 @@ const Navbar =()=>{
                                  <ul>
                                     {wallpapers.map((element, i)=>{
                                         return(
-                                            <li key={i}><a href={element.link} className="hover:text-[#c93]">{element.title}</a></li>
+                                            <li onClick={() => setActiveNavbar(false)} key={i}><Link to={'/products'} className="hover:text-[#c93]">{element.title}</Link></li>
                                         )
                                     })}
                                 </ul>
