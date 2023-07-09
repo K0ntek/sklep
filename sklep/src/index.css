@@ -160,3 +160,7 @@ body{
     display: none;
   }
 }
+
+.activeButton{
+  border-radius: 50%;
+}

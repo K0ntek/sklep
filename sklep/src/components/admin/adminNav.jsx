@@ -20,7 +20,7 @@ const sideNav = [
 ]
 
     return(
-        <div className="fiex top-0 left-0 h-screen w-[70px] bg-black group hover:w-[220px] transition-all duration-200">
+        <div className="fixed top-0 left-0 h-screen w-[70px] bg-black group hover:w-[220px] transition-all duration-200">
            <div className="fixed top-6 space-y-10 ml-2">
            <img src={logo} alt='' className="w-[50px] mx-auto justify-center"/>
 
