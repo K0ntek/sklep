@@ -6,6 +6,7 @@ import logo from '../../assets/logo.png'
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import { Link } from "react-router-dom";
+import ProductsInCart from "./productsInCart";
 
 const Navbar =()=>{
     const interior =[
@@ -224,36 +225,16 @@ const Navbar =()=>{
                     <div className="basket fixed top-[60px] right-[-100%] w-[100%] md:w-[70%] xl:w-[40%] 2xl:w-[30%] h-screen bg-[#fcfcfc] z-[90]">
                         <GrClose className="z-[99] absolute right-5 top-2 text-[30px] cursor-pointer hover:border-[2px] border-black rounded-full p-1" onClick={hideBasket}/>
                         <div className=" h-[100%]">
-                            <div className="w-fit mx-auto my-5">
-                                <h1 className=" text-center font-orbitron text-3xl">TWOJ KOSZYK</h1>
-                                <div className=" w-[50%] h-1 bg-black mx-auto rounded-full"></div>
+                            <div className="w-full mx-auto pt-5 bg-slate-100">
+                                <h1 className=" text-left font-brunoAce text-lg ml-3">TWÓJ KOSZYK</h1>
+                                <div className=" w-full h-[1px] bg-black mx-auto rounded-full"></div>
                             </div>
                              <div className="w-fit ml-5 my-5">
                                 <h1 className=" text-xl">Wartość koszyka: <span className=" font-orbitron"> 0 pln</span></h1>
                             </div>
                             <div className="h-[70%] overflow-y-scroll overflow-x-hidden">
                             <div>
-                                <ul>
-                                    <li className="relative py-3 ml-2">
-                                            <div className="text-xl">
-                                               <div className="absolute top-0 right-1"> <SlClose className="hover:text-[#c93] transition-all duration-100"/></div>
-                                            </div>
-                                        <div className="flex ml-3 w-full">
-                                            <img src={logo} alt="product" className="h-[50px]"/>
-                                            <div className="ml-3">
-                                                <h1 className=" font-brunoAce text-xl">Lorem, ipsum dolor.</h1>
-                                               <div className="flex space-x-2">
-                                               <div className="flex space-x-2 border-[1px] w-fit border-black rounded-full">
-                                                        <button className=" px-3 py-1 text-lg hover:bg-gray-100 rounded-full bg-slate-50" onClick={decrease}><AiOutlineMinus/></button>
-                                                        <div className="py-1 text-lg min-w-[30px] text-center">{counter}</div>
-                                                        <button className=" px-3 py-1 text-lg hover:bg-gray-100 rounded-full bg-slate-50" onClick={increase}><AiOutlinePlus/></button>
-                                                    </div>
-                                                    <div><p className=" text-xl font-orbitron relative top-[50%] translate-y-[-50%]">0 pln</p></div>
-                                               </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
+                              <ProductsInCart/>
                             </div>
                             </div>
                             <div className="w-[90%] mx-auto absolute bottom-[10%] left-[5%] ">
