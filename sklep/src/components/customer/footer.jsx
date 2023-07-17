@@ -45,8 +45,8 @@ const Footer=()=>{
 return(
     <div className="pt-12 bg-black w-full">
 
-        <div className="grid md:grid-cols-[65%_35%]">
-            <div className=" grid grid-cols-2">
+        <div className="grid md:grid-cols-[40%_60%]">
+            <div>
                                                     <div className="mx-auto justify-center text-center">
 
                                         <img src={logo} alt="logo" className="w-[50px] mx-auto"/>
@@ -72,13 +72,13 @@ return(
 
                                         </div>
 
-                                        <div className="justify-center text-white">
+                                        {/* <div className="justify-center text-white">
                                             <div className="w-fit mx-auto">
                                                 <h1 className=" text-xl mb-2">NEWSLETTER</h1>
                                                 <div className="w-[40%] h-0.5 bg-[#9c9c9c] mx-auto rounded-full my-2"></div>
                                             </div>
                                         <p className=" text-justify w-[80%] mx-auto">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius quasi nam laudantium nostrum minima, quia molestiae aliquam quis eos vel cum odio voluptates nesciunt consequuntur? Illum ipsam facere aspernatur. Maxime.</p>
-                                        </div>
+                                        </div> */}
             </div>
 
 
