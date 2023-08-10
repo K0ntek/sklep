@@ -8,7 +8,7 @@ const initState: User = {
   name: "string",
   surname: "string",
   password: "string",
-  phone: 1,
+  phone: "123456789",
   isAdmin: false
 };
 

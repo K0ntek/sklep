@@ -1,15 +1,17 @@
 import { gsap } from "gsap/all";
-import { FormEvent, useEffect } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useLogin } from "../hooks/auth/useLogin";
 
-const Register = () => {
+const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const { login, isLoading } = useLogin();
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    // await login({}); <- body
+    await login(email, password);
   };
 
   useEffect(() => {
@@ -42,7 +44,9 @@ const Register = () => {
                 <p className=" font-brunoAce text-xl">e-mail: </p>
                 <input
                   type="text"
-                  name="mail"
+                  name="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   className="bg-transparent border-b-[2px] border-black focus:outline-none w-full font-brunoAc focus:border-[#dda941]"
                 />
               </div>
@@ -51,12 +55,14 @@ const Register = () => {
                 <input
                   type="text"
                   name="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                   className="bg-transparent border-b-[2px] border-black focus:outline-none w-full font-brunoAce focus:border-[#dda941]"
                 />
               </div>
               <div className="registerFormButton text-center">
                 <button
-                  disabled={isLoading}
+                  disabled={isLoading || ((email === "") || (password === ""))}
                   className="bg-[#9c824e] font-brunoAce px-4 py-2 mt-1 hover:rounded-xl transition-all duration-200">
                   Zaloguj się
                 </button>
@@ -71,4 +77,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default Login;

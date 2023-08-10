@@ -10,7 +10,7 @@ const useRegister = () => {
   const register = async (user: User) => {
     setIsLoading(true);
 
-    const response = await fetch(`${import.meta.env.VITE_SERVER}/api/user/signup`, {
+    const response = await fetch(`${import.meta.env.VITE_SERVER}/api/user/new`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(user)

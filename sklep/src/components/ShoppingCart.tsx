@@ -5,11 +5,13 @@ import { AiOutlinePlus, AiOutlineMinus, SlClose } from "react-icons/all";
 import { ProductInCart } from "../interfaces";
 import { useCartContext } from "../hooks/context/useCartContext";
 import { useChangeCountCart } from "../hooks/cart/useChangeCountCart";
+import { useRemoveCart } from '../hooks/cart/useRemoveCart';
 
 const ShoppingCart = () => {
   const [cart, setCart] = useState<ProductInCart[]>([]);
   const { state } = useCartContext();
   const { changeCountCart } = useChangeCountCart();
+  const { removeCart } = useRemoveCart();
 
   useEffect(() => {
     setCart(state);
@@ -25,7 +27,9 @@ const ShoppingCart = () => {
                 <div className="text-xl">
                   <div className="absolute top-1 right-1">
                     {" "}
-                    <SlClose className="hover:text-[#c93] transition-all duration-100" />
+                    <button onClick={() => removeCart(product.id)}>
+                      <SlClose className="hover:text-[#c93] transition-all duration-100" />
+                    </button>
                   </div>
                 </div>
                 <div className="flex ml-3 w-full">

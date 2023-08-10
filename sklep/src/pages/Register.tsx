@@ -1,8 +1,14 @@
 import { gsap } from "gsap/all";
-import { FormEvent, useEffect } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import { useRegister } from "../hooks/auth/useRegister";
+import { User } from '../interfaces';
 
 const Register = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
+  const [surname, setSurname] = useState("");
+  const [phone, setPhone] = useState("");
   const { register, isLoading } = useRegister();
 
   // Dane do użytkownika
@@ -17,7 +23,8 @@ const Register = () => {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    // await register({}); <- body
+    const user: User = {email, password, name, surname, phone, isAdmin: false};
+    await register(user);
   };
 
   useEffect(() => {

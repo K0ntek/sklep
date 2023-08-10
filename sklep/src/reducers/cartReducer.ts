@@ -10,7 +10,10 @@ const cartReducer = (state: ProductInCart[] | [], action: CartActions) => {
       return [
         ...state.map((prod) =>
           prod.id === action.payload.id
-            ? { ...prod, count: prod.count + action.payload.value }
+            ? (prod.count > 1 || action.payload.value > 0) &&
+              (prod.count < 20 || action.payload.value < 0)
+              ? { ...prod, count: prod.count + action.payload.value }
+              : prod
             : prod
         )
       ];
