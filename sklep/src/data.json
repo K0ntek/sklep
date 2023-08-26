@@ -1,58 +1,58 @@
 [
-    {
-        "img":"https://barilo.com.pl/meble/data/poster/konsola-evia.webp",
-        "title":" Evia",
-        "category":"Konsola",
-        "price": "2100",
-        "id": "1",
-        "colors": [{"color":"#878787", "description": "szary"}, {"color":"black", "description": "czarny"},{"color":"white", "description": "biały"}]
-    },
-    {
-        "img":"https://barilo.com.pl/meble/data/poster/konsola-malveta.webp",
-        "title":" Malveta",
-        "category":"Konsola",
-        "price": "2100",
-        "id": "2",
-        "colors": [{"color":"black"}]
-    },
-    {
-        "img":"https://barilo.com.pl/meble/data/poster/konsola-set-of-lanka.webp",
-        "title":" Set Of Lanka",
-        "category":"Konsola",
-        "price": "2100",
-        "id": "3",
-        "colors": [{"color":"black"}]
-    },
-    {
-        "img":"https://barilo.com.pl/meble/data/poster/konsola-evia-duo.webp",
-        "title":" Evia Duo",
-        "category":"Konsola",
-        "price": "2100",
-        "id": "4",
-        "colors": [{"color":"black"}]
-    },
-    {
-        "img":"https://barilo.com.pl/meble/data/poster/konsola-double.webp",
-        "title":" Double",
-        "category":"Konsola",
-        "price": "2100",
-        "id": "5",
-        "colors": [{"color":"black"}]
-    },
-    {
-        "img":"https://barilo.com.pl/meble/data/poster/konsola-classic.webp",
-        "title":" Classic",
-        "category":"Konsola",
-        "price": "2100",
-        "id": "6",
-        "colors": [{"color":"black"}]
-    },
-    {
-        "img":"https://barilo.com.pl/meble/data/poster/konsola-elegante.webp",
-        "title":" Elegante",
-        "category":"Konsola",
-        "price": "2100",
-        "id": "7",
-        "colors": [{"color":"black"}]
-    }
+  {
+    "id": "1",
+    "img": "https://barilo.com.pl/meble/data/poster/konsola-evia.webp",
+    "title": "Evia",
+    "price": 2100,
+    "colors": ["szary", "czarny", "biały"],
+    "count": 1
+  },
+  {
+    "id": "2",
+    "img": "https://barilo.com.pl/meble/data/poster/konsola-malveta.webp",
+    "title": "Malveta",
+    "price": 2100,
+    "colors": ["black"],
+    "count": 1
+  },
+  {
+    "id": "3",
+    "img": "https://barilo.com.pl/meble/data/poster/konsola-set-of-lanka.webp",
+    "title": "Set Of Lanka",
+    "price": 2100,
+    "colors": ["black"],
+    "count": 1
+  },
+  {
+    "id": "4",
+    "img": "https://barilo.com.pl/meble/data/poster/konsola-evia-duo.webp",
+    "title": "Evia Duo",
+    "price": 2100,
+    "colors": ["black"],
+    "count": 1
+  },
+  {
+    "id": "5",
+    "img": "https://barilo.com.pl/meble/data/poster/konsola-double.webp",
+    "title": "Double",
+    "price": 2100,
+    "colors": ["black"],
+    "count": 1
+  },
+  {
+    "id": "6",
+    "img": "https://barilo.com.pl/meble/data/poster/konsola-classic.webp",
+    "title": "Classic",
+    "price": 2100,
+    "colors": ["black"],
+    "count": 1
+  },
+  {
+    "id": "7",
+    "img": "https://barilo.com.pl/meble/data/poster/konsola-elegante.webp",
+    "title": "Elegante",
+    "price": 2100,
+    "colors": ["black"],
+    "count": 1
+  }
 ]
